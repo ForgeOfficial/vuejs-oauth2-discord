@@ -26,13 +26,29 @@ async function login(redirectTo, callback) {
     })
 }
 
+async function disconnect(callback) {
+    return new Promise((resolve, reject) => {
+        axios.post(`${uri}/disconnect`, {}, {
+            withCredentials: VueOauth2DiscordConfig.withCredentials,
+            headers: VueOauth2DiscordConfig.headers
+        }).then(response => {
+            callback(response);
+            resolve();
+        }).catch(e => reject(e));
+
+    })
+}
+
+
 module.exports.login = login;
+module.exports.disconnect = disconnect;
 
 module.exports.initClient = function initClient(app, vueOauth2DiscordConfig) {
     if (vueOauth2DiscordConfig)
         VueOauth2DiscordConfig = vueOauth2DiscordConfig;
     uri = generateURI();
     app.config.globalProperties.$login = login;
+    app.config.globalProperties.$disconnect = disconnect;
 }
 
 function generateURI() {

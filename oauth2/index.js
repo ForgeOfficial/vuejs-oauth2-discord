@@ -11,7 +11,7 @@ let VueOauth2DiscordConfig = {
 
 let uri = generateURI();
 
-module.exports.login = async function login(component, redirectTo) {
+async function login(component, redirectTo) {
     return new Promise((resolve, reject) => {
         axios.post(`${uri}/login`, {
             redirectTo: redirectTo || null
@@ -30,6 +30,8 @@ module.exports.login = async function login(component, redirectTo) {
 
     })
 }
+
+module.exports.login = login;
 
 module.exports.initClient = function initClient(app, vueOauth2DiscordConfig) {
     if (vueOauth2DiscordConfig)

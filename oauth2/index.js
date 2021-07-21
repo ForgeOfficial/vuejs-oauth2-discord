@@ -11,7 +11,7 @@ let VueOauth2DiscordConfig = {
 
 let uri = generateURI();
 
-async function login(component, redirectTo) {
+async function login(component, redirectTo, callback) {
     return new Promise((resolve, reject) => {
         axios.post(`${uri}/login`, {
             redirectTo: redirectTo || null
@@ -26,6 +26,9 @@ async function login(component, redirectTo) {
 
             if (response.data['redirect'])
                 window.location.href = response.data['redirect'];
+
+            callback();
+            resolve();
         }).catch(e => reject(e));
 
     })

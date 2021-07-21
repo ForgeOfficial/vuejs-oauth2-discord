@@ -11,7 +11,7 @@ let VueOauth2DiscordConfig = {
 
 let uri = generateURI();
 
-export async function login(component, redirectTo) {
+module.exports = async function login(component, redirectTo) {
     return new Promise((resolve, reject) => {
         axios.post(`${uri}/login`, {
             redirectTo: redirectTo || null
@@ -31,7 +31,7 @@ export async function login(component, redirectTo) {
     })
 }
 
-export function initClient(app, vueOauth2DiscordConfig) {
+module.exports = function initClient(app, vueOauth2DiscordConfig) {
     if (vueOauth2DiscordConfig)
         VueOauth2DiscordConfig = vueOauth2DiscordConfig;
     uri = generateURI();
@@ -42,7 +42,7 @@ function generateURI() {
     return `http${VueOauth2DiscordConfig.ssl ? 's' : ''}://${VueOauth2DiscordConfig.host}${[80, 8080].includes(VueOauth2DiscordConfig.port) ? '' : `:${VueOauth2DiscordConfig.port}`}${VueOauth2DiscordConfig.path}`;
 }
 
-export class Server {
+module.exports = class Server {
 
     constructor(app, apiHost, webHost, path) {
         this.apiHost = apiHost;

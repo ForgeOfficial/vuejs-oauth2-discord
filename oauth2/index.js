@@ -11,7 +11,7 @@ let VueOauth2DiscordConfig = {
 
 let uri = generateURI();
 
-module.exports = async function login(component, redirectTo) {
+module.exports.login = async function login(component, redirectTo) {
     return new Promise((resolve, reject) => {
         axios.post(`${uri}/login`, {
             redirectTo: redirectTo || null
@@ -31,7 +31,7 @@ module.exports = async function login(component, redirectTo) {
     })
 }
 
-module.exports = function initClient(app, vueOauth2DiscordConfig) {
+module.exports.initClient = function initClient(app, vueOauth2DiscordConfig) {
     if (vueOauth2DiscordConfig)
         VueOauth2DiscordConfig = vueOauth2DiscordConfig;
     uri = generateURI();
@@ -69,13 +69,13 @@ module.exports.Server = class Server {
             app.passport.authenticate('discord', {scope: ['identify'], prompt: 'none'})(req, res, next);
         });
 
-        app.get('/callback', app.passport.authenticate('discord', { failureRedirect: '/'}), function(req, res) {
+        app.get(`${this.path}/callback`, app.passport.authenticate('discord', { failureRedirect: '/'}), function(req, res) {
             const redirectTo = req.session.redirectTo || '/';
             delete req.session.redirectTo;
-            res.redirect(`${webHost}/${redirectTo}`)
+            res.redirect(`${webHost}${redirectTo}`)
         });
 
-        app.post('/disconnect', function(req, res) {
+        app.post(`${this.path}/disconnect`, function(req, res) {
             req.logout();
             res.send();
         });

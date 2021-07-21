@@ -1,0 +1,15 @@
+{
+  "name": "vuejs-oauth2-discord",
+  "version": "3.0",
+  "description": "FrontEnd (VueJs)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

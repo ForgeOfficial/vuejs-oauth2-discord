@@ -1,0 +1,24 @@
+{
+  "name": "vuejs-oauth2-discord",
+  "version": "1.0.0",
+  "description": "Oauth2 Discord for VueJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ForgeOfficial/vuejs-oauth2-discord.git"
+  },
+  "keywords": [
+    "VueJs",
+    "Discord",
+    "Oauth2"
+  ],
+  "author": "ForgeOfficial",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ForgeOfficial/vuejs-oauth2-discord/issues"
+  },
+  "homepage": "https://github.com/ForgeOfficial/vuejs-oauth2-discord#readme"
+}

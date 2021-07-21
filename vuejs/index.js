@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class VueOauth2Discord {
+class Client {
     constructor() {
         this.vueOauth2DiscordConfig = {
             host: 'localhost',
@@ -45,4 +45,4 @@ class VueOauth2Discord {
     }
 }
 
-module.exports = VueOauth2Discord;
+module.exports = Client;

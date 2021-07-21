@@ -3,5 +3,6 @@ const
 
 module.exports = {
     initClient,
-    login
+    login,
+    Server
 }

@@ -1,5 +1,7 @@
-'use strict';
+const
+    {login, initClient, Server} = require('./vuejs');
 
 module.exports = {
-    Client: require('./vuejs')
+    initClient,
+    login
 }

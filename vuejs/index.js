@@ -42,7 +42,7 @@ function generateURI() {
     return `http${VueOauth2DiscordConfig.ssl ? 's' : ''}://${VueOauth2DiscordConfig.host}${[80, 8080].includes(VueOauth2DiscordConfig.port) ? '' : `:${VueOauth2DiscordConfig.port}`}${VueOauth2DiscordConfig.path}`;
 }
 
-module.exports = class Server {
+module.exports.Server = class Server {
 
     constructor(app, apiHost, webHost, path) {
         this.apiHost = apiHost;

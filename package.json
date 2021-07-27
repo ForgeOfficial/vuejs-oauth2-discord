@@ -1,6 +1,6 @@
 {
   "name": "vuejs-oauth2-discord",
-  "version": "1.2.0",
+  "version": "3.0.0",
   "description": "Oauth2 Discord for VueJs",
   "main": "index.js",
   "scripts": {
